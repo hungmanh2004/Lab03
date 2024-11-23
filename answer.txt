@@ -1,0 +1,3 @@
+If you create a constructor method to build a DVD by title then create a constructor method to build 
+a DVD by category. Does JAVA allow you to do this? 
+  Answer: In Java, you cannot have two constructors that only differ by parameter type if the parameter types are not distinct. Constructors must have a unique signature, which includes the number, types, and order of parameters.

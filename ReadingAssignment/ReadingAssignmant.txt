@@ -1,0 +1,11 @@
+*Key Points from Holub's Article:
+- Holub argues that getters and setters can break encapsulation by exposing internal details.
+- They can lead to procedural programming, where objects are manipulated externally rather than internally.
+- Holub suggests that true object-oriented design minimizes direct access to an object's fields. Instead, objects should have behavior-oriented methods that represent what they do, not how their data is accessed or modified.
+
+My opinion:
+- Use accessors when:
+  + Controlled, read-only access is needed.
+  + Values need validation or calculated responses.
+- Avoid accessors if they expose complex internal structures or require repeated external manipulation.
+- Prefer behavior-oriented methods to enhance encapsulation.
