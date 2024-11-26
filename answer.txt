@@ -1,3 +1,9 @@
-If you create a constructor method to build a DVD by title then create a constructor method to build 
-a DVD by category. Does JAVA allow you to do this? 
-  Answer: In Java, you cannot have two constructors that only differ by parameter type if the parameter types are not distinct. Constructors must have a unique signature, which includes the number, types, and order of parameters.
+Question 1:
+  Why does the title of jungleDVD and cinderellaDVD remain unchanged after the call to swap(jungleDVD, cinderellaDVD)?
+  -> Java passes parameters by value, and in the case of object references, this means a copy of the reference is passed to the method. When you try to swap o1 and o2 inside the swap() method, you're swapping the local copies of the references, not the original references. Therefore, the original jungleDVD and cinderellaDVD objects remain unchanged outside the method.
+  
+  Why is the title of jungleDVD changed after the call to changeTitle(jungleDVD, cinderellaDVD.getTitle())?
+  -> The reference to jungleDVD is passed by value, but it still points to the same object in memory. When you modify the title of the object inside the changeTitle() method, it directly affects the object because you're modifying the internal state of the object. However, when you reassign dvd to a new DigitalVideoDisc inside the method, it does not affect the original reference outside the method.
+
+  ==> JAVA is a pass by value programming language.
+
