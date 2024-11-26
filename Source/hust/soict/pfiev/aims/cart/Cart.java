@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.*;
 
 public class Cart {
     private ArrayList<DigitalVideoDisc> items = new ArrayList<>();
@@ -9,6 +8,21 @@ public class Cart {
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (items.size() < MAX_NUMBERS_ORDERED) {
             items.add(disc);
+        }
+    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+        for (DigitalVideoDisc disc : dvdList) {
+            if (items.size() < MAX_NUMBERS_ORDERED) {
+                items.add(disc);
+            }
+        }
+    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+        if (items.size() < MAX_NUMBERS_ORDERED - 2) {
+            items.add(dvd1);
+            items.add(dvd2);
         }
     }
 
@@ -37,14 +51,34 @@ public class Cart {
     }
 
     // Hien thi tat ca thong tin cua DVD trong gio hang
-    public void displayCart() {
-        System.out.println("Current cart:");
+    public void print() {
+        System.out.println("Ordered Items: ");
         for (DigitalVideoDisc disc : items) {
-            System.out.println("Title: " + disc.getTitle() + ", Category: " + disc.getCategory() +
-                               ", Director: " + disc.getDirector() + ", Length: " + disc.getLength() +
-                               ", Cost: " + disc.getCost());
+            System.out.println(disc.toString());
         }
         System.out.println("Total cost: " + totalCost());
+    }
+
+    public void print(int id) {
+        for (DigitalVideoDisc disc : items) {
+            if(disc.isMatch(id)) {
+                System.out.println(disc.toString());
+            }
+            else {
+                System.out.println("No disc found");
+            }
+        }
+    }
+
+    public void print(String title) {
+        for (DigitalVideoDisc disc : items) {
+            if(disc.isMatch(title)) {
+                System.out.println(disc.toString());
+            }
+            else {
+                System.out.println("No disc found");
+            }
+        }
     }
 
     // Getter to access items in the cart
